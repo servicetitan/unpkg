@@ -7,6 +7,7 @@ import bufferStream from './bufferStream.js';
 
 const npmRegistryURL =
   process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org';
+const npmAuthToken = process.env.NPM_AUTH_TOKEN;
 
 const agent = new https.Agent({
   keepAlive: true
@@ -55,6 +56,10 @@ async function fetchPackageInfo(packageName, log) {
       Accept: 'application/json'
     }
   };
+
+  if (npmAuthToken) {
+    options.headers.Authorization = `Bearer ${npmAuthToken}`;
+  }
 
   const res = await get(options);
 
@@ -179,6 +184,12 @@ export async function getPackage(packageName, version, log) {
     hostname: hostname,
     path: pathname
   };
+
+  if (npmAuthToken) {
+    options.headers = {
+      Authorization: `Bearer ${npmAuthToken}`
+    }
+  }
 
   const res = await get(options);
 
