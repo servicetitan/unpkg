@@ -21,6 +21,9 @@ import validatePackagePathname from './middleware/validatePackagePathname.js';
 import validatePackageName from './middleware/validatePackageName.js';
 import validatePackageVersion from './middleware/validatePackageVersion.js';
 
+const cloudflareEmail = process.env.CLOUDFLARE_EMAIL;
+const cloudflareKey = process.env.CLOUDFLARE_KEY;
+
 function createApp(callback) {
   const app = express();
   callback(app);
@@ -49,7 +52,10 @@ export default function createServer() {
     app.use(requestLog);
 
     app.get('/', serveMainPage);
-    app.get('/api/stats', serveStats);
+
+    if (cloudflareEmail != null && cloudflareKey != null) {
+      app.get('/api/stats', serveStats);
+    }
 
     app.use(redirectLegacyURLs);
 

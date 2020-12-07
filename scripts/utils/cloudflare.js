@@ -3,14 +3,16 @@ const fetch = require('isomorphic-fetch');
 const CloudflareEmail = process.env.CLOUDFLARE_EMAIL;
 const CloudflareKey = process.env.CLOUDFLARE_KEY;
 
-if (CloudflareEmail == null) {
-  console.error('Missing the $CLOUDFLARE_EMAIL environment variable');
-  process.exit(1);
-}
+if (CloudflareEmail != null || CloudflareKey != null) {
+  if (CloudflareEmail == null) {
+    console.error('Missing the $CLOUDFLARE_EMAIL environment variable');
+    process.exit(1);
+  }
 
-if (CloudflareKey == null) {
-  console.error('Missing the $CLOUDFLARE_KEY environment variable');
-  process.exit(1);
+  if (CloudflareKey == null) {
+    console.error('Missing the $CLOUDFLARE_KEY environment variable');
+    process.exit(1);
+  }
 }
 
 function get(path) {
