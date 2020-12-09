@@ -95,17 +95,6 @@ const server = {
     }),
     replace({
       'process.env.BUILD_ID': JSON.stringify(buildId),
-      'process.env.CLOUDFLARE_EMAIL': JSON.stringify(
-        process.env.CLOUDFLARE_EMAIL
-      ),
-      'process.env.CLOUDFLARE_KEY': JSON.stringify(process.env.CLOUDFLARE_KEY),
-      'process.env.NPM_AUTH_TOKEN': JSON.stringify(
-        process.env.NPM_AUTH_TOKEN
-      ),
-      'process.env.NPM_REGISTRY_URL': JSON.stringify(
-        process.env.NPM_REGISTRY_URL
-      ),
-      'process.env.ORIGIN': JSON.stringify(process.env.ORIGIN)
     })
   ]
 };
