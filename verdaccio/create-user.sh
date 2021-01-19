@@ -1,3 +1,5 @@
 #! /bin/bash
 
-htpasswd -b -c htpasswd ${NPM_LOGIN} ${NPM_PASSWORD}
+mkdir storage
+
+htpasswd -b -c ./storage/htpasswd ${NPM_LOGIN} ${NPM_PASSWORD}
