@@ -15,7 +15,6 @@ RUN ./create-user.sh
 
 FROM node:14
 
-USER node
 WORKDIR "/home/node/verdaccio"
 
 COPY package.json .
