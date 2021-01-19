@@ -1,10 +1,5 @@
 FROM ubuntu as preparation
 
-ENV NPM_AUTH_TOKEN=4c/DccrE9f9vtSbWcQA5NfKbGSm82QFwouzCHXS7FrE= \
-    NPM_LOGIN=st-team \
-    NPM_PASSWORD=qSGY#cm@ \
-    PORT=5000 
-
 RUN apt-get update && \
     apt-get -y install apache2-utils 
 
