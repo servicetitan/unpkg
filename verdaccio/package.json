@@ -1,0 +1,12 @@
+{
+  "name": "verdaccio",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "verdaccio"
+  },
+  "dependencies": {
+    "verdaccio": "~4.10.0",
+    "verdaccio-static-token": "~1.0.1"
+  }
+}
