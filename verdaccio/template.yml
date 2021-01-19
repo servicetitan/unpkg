@@ -1,0 +1,23 @@
+storage: ../storage/data
+plugins: ../plugins
+web:
+  title: ServiceTitan Verdaccio
+auth:
+  static-token:
+  htpasswd:
+    file: ../storage/htpasswd
+    max_users: 1
+packages:
+  '**':
+    access: $authenticated
+    publish: $authenticated
+    unpublish: $authenticated
+middlewares:
+  static-token:
+    - token: ${NPM_AUTH_TOKEN}
+  audit:
+    enabled: true
+listen:
+  - 0.0.0.0:${PORT}
+logs:
+  - { type: stdout, format: pretty, level: http }
