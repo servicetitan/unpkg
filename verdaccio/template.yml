@@ -19,5 +19,6 @@ middlewares:
     enabled: true
 listen:
   - 0.0.0.0:${PORT}
+max_body_size: 1024mb
 logs:
   - { type: stdout, format: pretty, level: http }
