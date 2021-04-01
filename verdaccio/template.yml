@@ -8,7 +8,7 @@ auth:
     file: ../storage/htpasswd
     max_users: 1
 packages:
-  '**':
+  '@servicetitan/*':
     access: $authenticated
     publish: $authenticated
     unpublish: $authenticated
