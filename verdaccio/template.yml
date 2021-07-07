@@ -10,6 +10,8 @@ auth:
 packages:
   '@servicetitan/*':
     access: $authenticated
+    publish: $authenticated
+    unpublish: $authenticated
 middlewares:
   static-token:
     - token: ${NPM_AUTH_TOKEN}
