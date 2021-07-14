@@ -1,2 +1,2 @@
 FROM verdaccio/verdaccio:5.1.1
-RUN npm install verdaccio-static-token
+RUN npm install -g verdaccio-static-token
