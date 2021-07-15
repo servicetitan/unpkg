@@ -1,4 +1,4 @@
-FROM verdaccio/verdaccio:5.1.1 as common
+FROM verdaccio/verdaccio:4.12.2 as common
 
 FROM common as builder
 USER root
